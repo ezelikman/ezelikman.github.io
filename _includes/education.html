@@ -1,0 +1,16 @@
+<div class="education">
+    <h2>Education</h2>
+    {% if page.profile.seal %}
+    <div class="row">
+      <div class="col-md-2">
+        <img class="img-fluid z-depth-0.5 rounded" src="{{ page.profile.seal | prepend: '/assets/img/' | relative_url }}" width="100px" height="100px">
+      </div>
+      <div class="col-md-6">
+        <div class="education-details">
+        <div><span style="font-weight: bold">Stanford University</span></div>
+        <div>Bachelor of Science</div><div> Symbolic Systems with Honors </div><div> September 2016 - June 2020 </div>      
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>

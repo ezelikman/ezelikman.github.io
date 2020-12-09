@@ -11,11 +11,11 @@ layout: default
      <p class="desc">{{ page.description }}</p>
   </header>
 
-  <article>
+  <d-article>
     {% if page.profile %}
     <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
       {% if page.profile.image %}
-        <img class="img-fluid z-depth-1 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+        <img class="img-fluid z-depth-0.5 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
       {% endif %}
       {% if page.profile.address %}
         <div class="address">
@@ -37,12 +37,24 @@ layout: default
       {% include selected_papers.html %}
     {% endif %}
 
+    {% if page.education %}
+    {% include education.html %}
+    {% endif %}
+
+    {% if page.industry %}
+      {% include industry.html %}
+    {% endif %}
+
+    {% if page.organizations %}
+      {% include organizations.html %}
+    {% endif %}
+
     {% if page.social %}
     <div class="social">
       {% include social.html %}
       <div class="contact-note">{{ site.contact_note }}</div>
     </div>
     {% endif %}
-  </article>
+  </d-article>
 
 </div>

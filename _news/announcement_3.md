@@ -1,7 +1,9 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+dates: "June – September 2019"
 inline: true
+role: "Machine Learning Intern"
+emoji: "car"
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+Argo AI

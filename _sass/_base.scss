@@ -31,8 +31,17 @@ a, table.table a {
   text-align: center;
 }
 
-
 // Profile
+
+.clearfix {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.industry, .education {
+  table, .row {
+    font-family: "Source Sans Pro", sans-serif;
+  }
+}
 
 .profile {
   margin-left: 1rem;
@@ -71,7 +80,21 @@ a, table.table a {
   }
 }
 
+.linked {
+  color: var(--global-theme-color);
+  &:hover {
+    text-decoration: none;
+    color: var(--global-hover-color);
+  }
+}
 
+.linked-role {
+  color: var(--global-theme-color);
+  &:hover {
+    text-decoration: none !important;
+    color: var(--global-hover-color) !important;
+  }
+}
 // Navbar customization
 
 .navbar {
@@ -279,8 +302,20 @@ footer.sticky-bottom {
   }
 }
 
-
+h2 {
+  font-weight: 400;
+  border-bottom: 1px solid $grey-color-light;
+  padding-bottom: 0.5rem;
+}
 // Publications
+
+.education {
+  margin-bottom: 1rem;
+}
+
+.img-fluid {
+  padding: 0.5rem;
+}
 
 .publications {
   margin-top: 2rem;
@@ -300,6 +335,7 @@ footer.sticky-bottom {
   h2.year {
     color: $grey-color-light;
     border-top: 1px solid $grey-color-light;
+    border-bottom: none;
     padding-top: 1rem;
     margin-top: 2rem;
     margin-bottom: -2rem;
@@ -312,14 +348,16 @@ footer.sticky-bottom {
 
     li {
       margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dotted lighten($grey-color-light, 1%);
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
+          padding-left: 0.5em;
+          padding-right: 0.5rem;
           a {
             color: white;
             &:hover {

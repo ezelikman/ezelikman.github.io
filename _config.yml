@@ -3,19 +3,16 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: You
-middle_name: R.
-last_name: (Long Last) Name
-email: you@example.com
+first_name: Eric
+middle_name: 
+last_name: Zelikman
+email: ezelikman@cs.stanford.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-footer_text: >
-  Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+footer_text: 
 
 url:  # the base hostname & protocol for your site
-baseurl: /al-folio # the subpath of your site, e.g. /blog/
+baseurl: /home # the subpath of your site, e.g. /blog/
 last_updated: false # set to true if you want to display last updated in the footer
 
 # -----------------------------------------------------------------------------
@@ -33,16 +30,16 @@ footer_fixed: true
 # To achieve this, change serve_og_meta to true and then provide the URL of the
 # preview image as the value of og_image.
 serve_og_meta: false # Include Open Graph meta tags in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+og_image: # The site-wide (default for all lißnks) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: # your GitHub user name
+github_username: ezelikman # your GitHub user name
 twitter_username: # your Twitter handle
-linkedin_username: # your LinkedIn user name
-scholar_userid: # your Google Scholar ID
+linkedin_username: ericzelikman # your LinkedIn user name
+scholar_userid: V5B8dSUAAAAJ # your Google Scholar ID
 orcid_id: # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
@@ -52,15 +49,15 @@ blogger_url: # your blogger URL
 keybase_username: # your keybase user name
 
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Feel free to reach out to me at <code>ezelikman [at] cs [dot] stanford [dot] edu</code>!
 
-google_analytics: UA-XXXXXXXXX # out your google-analytics code
+google_analytics: UA-V8HMZSX4TF # out your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio  # your blog must have a name for it to show up in the nav bar
+blog_name: # your blog must have a name for it to show up in the nav bar
 blog_description: a simple whitespace theme for academics
 permalink: /blog/:year/:title/
 
@@ -81,6 +78,11 @@ collections:
       layout: post
     output: true
     permalink: /news/:path/
+  organizations:
+    defaults:
+      layout: post
+    output: true
+    permalink: /organizations/:path/
   projects:
     output: true
     permalink: /projects/:path/
@@ -126,7 +128,7 @@ plugins:
 
 scholar:
 
-  last_name: Einstein
+  last_name: Zelikman
 
   style: apa
   locale: en

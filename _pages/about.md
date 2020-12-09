@@ -2,23 +2,24 @@
 layout: about
 title: about
 permalink: /
-description: <a href="#">Affiliations</a>. Address. Contacts. Moto. Etc.
+description: 
 
 profile:
   align: right
-  image: prof_pic.jpg
-  address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  image: prof_pic.jpeg
+  seal: stanford_seal.png
+  address: 
 
-news: true  # includes a list of news items
+news: false  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
+industry: true  # includes social icons at the bottom of the page
+organizations: true  # includes social icons at the bottom of the page
+education: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a recent Stanford Symbolic Systems graduate fascinated by how (and whether) algorithms can learn meaningful representations. Perhaps the most <s>daunting</s> exciting gap between biological and machine learning is the ease with which we learn to create and apply concepts about our world from experience: not only do we need much <i>less</i> experience to construct these concepts, but our understanding is <b>flexible</b> in novel situations, <b>robust</b> to slight changes, and generally <b>disentangled</b>. 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Ultimately, I hope machine learning can teach us about non-machine learning and help us overcome the challenges facing humanity.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/){:target="\_blank"} and [Academicons](https://jpswalsh.github.io/academicons/){:target="\_blank"}, like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Also, I love baking bread, cooking, and exploring nature!

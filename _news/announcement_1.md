@@ -1,7 +1,9 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+dates: "October 2016 – July 2017"
 inline: true
+role: "Software Engineer"
+emoji: "poll"
 ---
 
-A simple inline announcement.
+Philometrics
