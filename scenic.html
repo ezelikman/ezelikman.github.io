@@ -125,6 +125,18 @@
         <input type="text" id="time" placeholder="Extra time (minutes)">
         <input type="text" id="routeProperties" placeholder="What kind of stops?">
         <input type="password" id="apiKey" placeholder="OpenAI API Key">
+
+        <select id="vehicle" name="vehicle" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; flex: 1 1 auto; margin: 5px; font-size: 0.9em;">
+            <option value="car">Car</option>
+            <option value="foot">Foot</option>
+            <option value="hike">Hike</option>
+            <option value="wheelchair">Wheelchair</option>
+            <option value="bike">Bike</option>
+            <option value="racingbike">Racing Bike</option>
+            <option value="mtb">Mountain Bike</option>
+            <option value="motorcycle">Motorcycle</option>
+        </select>    
+
         <button id="submit" onclick="updateRoute()">Submit</button>
     </div>
 
@@ -168,7 +180,8 @@
         // Function to fetch a route from the GraphHopper Routing API
         async function getRoute(apiKey, points) {
             const pointParams = points.map(({ lat, lng }) => `point=${lat},${lng}`).join('&');
-            const response = await fetch(`https://graphhopper.com/api/1/route?${pointParams}&key=${apiKey}`);
+            const vehicle = document.getElementById("vehicle").value; // get the selected vehicle
+            const response = await fetch(`https://graphhopper.com/api/1/route?${pointParams}&vehicle=${vehicle}&key=${apiKey}`);
             // Check if the response is undefined or not successful
             if (!response || response.status !== 200) {
                 return null;
@@ -215,6 +228,9 @@
             var start = document.getElementById('start').value;
             var end = document.getElementById('end').value;
 
+            // Update the description
+            document.getElementById('description').innerHTML = 'Calculating route from ' + start + ' to ' + end + '...';
+
             var startCoordinates = await getCoordinates(apiKey, start);
             var endCoordinates = await getCoordinates(apiKey, end);
 
@@ -252,7 +268,8 @@
             // Get the properties of the route and generate a GPT-3 prompt
             var properties = document.getElementById('routeProperties').value;
             var maxExtraTime = document.getElementById('time').value;
-            var prompt = `Provide a list of locations between ${start} and ${end} that have the following properties, ordered by how close they are to ${start}: ${properties}. Collectively, they should add no more than ${maxExtraTime} minutes of travel by car, relative to a direct route. Make sure they form a reasonable path between ${start} and ${end}. On each line, list a result in the format "1. <location>: <one-sentence-description>"`;
+            let vehicle = document.getElementById("vehicle").value;
+            var prompt = `Provide a list of locations between ${start} and ${end} that have the following properties, ordered by how close they are to ${start}: ${properties}. Collectively, they should add no more than ${maxExtraTime} minutes of travel by ${vehicle}, relative to a direct route. Make sure they form a reasonable path between ${start} and ${end}. On each line, list a result in the format "1. <location>: <one-sentence-description>"`;
             console.log(prompt);
 
             // Example of how to generate a response from GPT
