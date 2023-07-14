@@ -349,7 +349,7 @@
                     newPath.push(validLocations[i].locationCoordinates);
                     finalRouteData = await getRoute(apiKey, [...newPath, endCoordinates]);
                     // Concat the place and description and then push it to the array
-                    newPathDescription.push(`${validLocations[i].location}: ${validLocations[i].description}`);
+                    newPathDescription.push(`<b>${validLocations[i].location}</b>: ${validLocations[i].description}`);
                     // Add a marker for the added stop
                     let marker = L.marker([validLocations[i].locationCoordinates.lat, validLocations[i].locationCoordinates.lng]);
                     marker.bindPopup(`${validLocations[i].location}: ${validLocations[i].description}`);
