@@ -21,7 +21,7 @@
             }
     
             #title {
-                padding: 20px;
+                padding: 0px;
                 font-size: 2em;
                 text-align: center;
                 color: #1a1a1a;
@@ -72,6 +72,22 @@
                 border-radius: 8px;
                 box-shadow: 0 0 10px rgba(0,0,0,0.15);
             }
+
+            .api-key-help {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .api-key-help a {
+                color: #5d5d5d;
+                text-decoration: none;
+            }
+
+            .api-key-help a:hover {
+                text-decoration: underline;
+            }
+
         </style>
     </head>
     <body>
@@ -83,6 +99,10 @@
             <input type="text" id="routeProperties" placeholder="What kind of stops?">
             <input type="text" id="apiKey" placeholder="OpenAI API Key">
             <button id="submit" onclick="updateRoute()">Submit</button>
+        </div>
+    
+        <div class="api-key-help">
+            <a href="https://platform.openai.com/account/api-keys" target="_blank">Find your OpenAI API Key</a>
         </div>
     
         <div id="map"></div>
@@ -98,9 +118,11 @@
         var markers = [];
 
         // Add OpenStreetMap tiles to the map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
+
 
         var polylineLayer = null;
 
