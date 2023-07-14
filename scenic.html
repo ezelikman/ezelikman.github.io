@@ -1,125 +1,143 @@
 <!DOCTYPE html>
-<html>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Take the Scenic Route 🗺️</title>
-    
-        <!-- Include Leaflet CSS and JavaScript -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="https://unpkg.com/@mapbox/polyline"></script>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take the Scenic Route 🗺️</title>
 
-        <!-- Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8HMZSX4TF"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-V8HMZSX4TF');
-        </script>
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@mapbox/polyline"></script>
 
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                color: #333;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-            }
-    
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8HMZSX4TF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-V8HMZSX4TF');
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #title {
+            padding: 0px;
+            font-size: 2em;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        #map {
+            width: 100%;
+            height: 70vh;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        .input-control {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        .input-control input {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            flex: 1 1 auto;
+            margin: 5px;
+        }
+
+        .input-control button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            flex: 1 1 auto;
+            margin: 5px;
+        }
+
+        .input-control button:hover {
+            background-color: #0056b3;
+        }
+
+        #description {
+            margin: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        .api-key-help {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .api-key-help a {
+            color: #5d5d5d;
+            text-decoration: none;
+        }
+
+        .api-key-help a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
             #title {
-                padding: 0px;
-                font-size: 2em;
-                text-align: center;
-                color: #1a1a1a;
+                font-size: 1.5em;
             }
-    
-            #map {
-                width: 100%;
-                height: 70vh;
-                margin: 0 auto;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.15);
-            }
-    
+            
             .input-control {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin: 15px 0;
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.15);
-            }
-    
-            .input-control input {
-                padding: 5px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-            }
-    
-            .input-control button {
-                padding: 5px 10px;
-                border: none;
-                border-radius: 4px;
-                background-color: #007bff;
-                color: #fff;
-                cursor: pointer;
-            }
-    
-            .input-control button:hover {
-                background-color: #0056b3;
-            }
-    
-            #description {
-                margin: 20px;
-                padding: 10px;
-                background-color: #fff;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.15);
+                flex-direction: column;
             }
 
-            .api-key-help {
-                display: flex;
-                justify-content: center;
+            .input-control input, .input-control button {
+                width: 100%;
                 margin-bottom: 10px;
             }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Take the Scenic Route 🗺️</h1>
+    <div class="input-control">
+        <input type="text" id="start" placeholder="Start location">
+        <input type="text" id="end" placeholder="End location">
+        <input type="text" id="time" placeholder="Extra time (minutes)">
+        <input type="text" id="routeProperties" placeholder="What kind of stops?">
+        <input type="password" id="apiKey" placeholder="OpenAI API Key">
+        <button id="submit" onclick="updateRoute()">Submit</button>
+    </div>
 
-            .api-key-help a {
-                color: #5d5d5d;
-                text-decoration: none;
-            }
+    <div class="api-key-help">
+        <a href="https://platform.openai.com/account/api-keys" target="_blank">Find your OpenAI API Key</a>
+    </div>
 
-            .api-key-help a:hover {
-                text-decoration: underline;
-            }
+    <div id="map"></div>
 
-        </style>
-    </head>
-    <body>
-        <h1 id="title">Take the Scenic Route 🗺️</h1>
-        <div class="input-control">
-            <input type="text" id="start" placeholder="Start location">
-            <input type="text" id="end" placeholder="End location">
-            <input type="text" id="time" placeholder="Extra time (minutes)">
-            <input type="text" id="routeProperties" placeholder="What kind of stops?">
-            <input type="password" id="apiKey" placeholder="OpenAI API Key">
-            <button id="submit" onclick="updateRoute()">Submit</button>
-        </div>
-    
-        <div class="api-key-help">
-            <a href="https://platform.openai.com/account/api-keys" target="_blank">Find your OpenAI API Key</a>
-        </div>
-    
-        <div id="map"></div>
-    
-        <div id="description">
-            <!-- Replace this placeholder text as required -->
-            <p>Your route description will appear here...</p>
-        </div>
+    <div id="description">
+        <!-- Replace this placeholder text as required -->
+        <p>Your route description will appear here...</p>
+    </div>
     
     <script>
         // Initialize the map
