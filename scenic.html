@@ -227,7 +227,7 @@
         async function updateRoute() {
             var maxExtraTime = document.getElementById('time').value;
             if (!maxExtraTime) {
-                document.getElementById('description').innerHTML = "Please fill in the extra time field. For example, if you're willing to spend 120 minutes longer than the most direct route, put 120 as extra time.";
+                document.getElementById('description').innerHTML = "Route description will go here. Make sure to fill in the extra time field. For example, if you're willing to spend 120 minutes longer than the most direct route, put 120 as extra time.";
                 return;
             }
             if (isNaN(maxExtraTime)) {
@@ -245,7 +245,7 @@
             var end = document.getElementById('end').value;
 
             // Update the description
-            document.getElementById('description').innerHTML = 'Calculating route from ' + start + ' to ' + end + '...';
+            document.getElementById('description').innerHTML = 'Calculating route from ' + start + ' to ' + end + '...' + '<br>' + '<img src="https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-22-68_512.gif" width="50" height="50">';
 
             var startCoordinates = await getCoordinates(apiKey, start);
             var endCoordinates = await getCoordinates(apiKey, end);
