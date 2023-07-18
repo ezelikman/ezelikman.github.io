@@ -21,7 +21,6 @@
     </script>
 
     <style>
-
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
@@ -31,28 +30,55 @@
         }
 
         #title {
-            padding: 0px;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%); /* center the title */
+            padding: 10px 20px; /* space around the text */
             font-size: 2em;
             text-align: center;
             color: #1a1a1a;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px; width: 60%;
         }
+    
 
         #map {
+            position: fixed;
+            z-index: 0;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 50vh;
-            margin: 0 auto;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            height: 100vh;
         }
 
         .input-control {
+            position: absolute;
+            z-index: 1;
+            top: 90px;  /* adjust as needed */
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%); /* center the title */
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
             margin: 15px 0;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        #description {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 20px;
+            padding: 10px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.15);
         }
