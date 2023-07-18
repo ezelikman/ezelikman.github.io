@@ -271,6 +271,9 @@
             polylineLayer = L.polyline(latlngs).addTo(map);
             map.fitBounds(polylineLayer.getBounds());
 
+            var properties = document.getElementById('routeProperties').value;
+            var maxExtraTime = document.getElementById('time').value;
+            let vehicle = document.getElementById("vehicle").value;
             // Example of how to generate a response from GPT
             var gptResponse = await generateResponse(start, end, properties, maxExtraTime, vehicle);
             console.log(gptResponse);
