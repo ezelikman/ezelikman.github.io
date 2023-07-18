@@ -227,7 +227,7 @@
         async function updateRoute() {
             var maxExtraTime = document.getElementById('time').value;
             if (!maxExtraTime) {
-                document.getElementById('description').innerHTML = "Please fill in the extra time field. For example, if you're willing to spend 120 minutes longer than the normal route, put 120 as extra time.";
+                document.getElementById('description').innerHTML = "Please fill in the extra time field. For example, if you're willing to spend 120 minutes longer than the most direct route, put 120 as extra time.";
                 return;
             }
             if (isNaN(maxExtraTime)) {
