@@ -314,6 +314,7 @@
             var newPathDescription = [];
             var finalRouteData = null;
             var googleMapsLink = "https://www.google.com/maps/dir/";
+            googleMapsLink += encodeURIComponent(start) + '/';  // add start location to Google Maps link
 
             // Generate an array of indices from 0 to locations.length-1
             var indices = Array.from({length: locations.length}, (_, i) => i);
@@ -355,6 +356,7 @@
                     googleMapsLink += encodeURIComponent(location) + '/';  // add each valid location to Google Maps link
                 }
             }
+            googleMapsLink += encodeURIComponent(end) + '/';  // add end location to Google Maps link
 
             // Add valid locations to the newPath
             for (var i = 0; i < validLocations.length; i++) {
