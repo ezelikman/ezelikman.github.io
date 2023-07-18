@@ -353,10 +353,8 @@
                         location: location,
                         description: description
                     };
-                    googleMapsLink += encodeURIComponent(location) + '/';  // add each valid location to Google Maps link
                 }
             }
-            googleMapsLink += encodeURIComponent(end) + '/';  // add end location to Google Maps link
 
             // Add valid locations to the newPath
             for (var i = 0; i < validLocations.length; i++) {
@@ -368,10 +366,12 @@
                     // Add a marker for the added stop
                     let marker = L.marker([validLocations[i].locationCoordinates.lat, validLocations[i].locationCoordinates.lng]);
                     marker.bindPopup(`${validLocations[i].location}: ${validLocations[i].description}`);
+                    googleMapsLink += encodeURIComponent(validLocations[i].location) + '/';  // add each valid location to Google Maps link
                     markers.push(marker);
                     marker.addTo(map);
                 }
             }
+            googleMapsLink += encodeURIComponent(end) + '/';  // add end location to Google Maps link
 
             var finalRouteTime = finalRouteData.time;
             console.log(finalRouteTime);
