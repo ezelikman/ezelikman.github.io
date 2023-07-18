@@ -230,7 +230,7 @@
                 document.getElementById('description').innerHTML = "Please fill in the extra time field. For example, if you're willing to spend 120 minutes longer than the normal route, put 120 as extra time.";
                 return;
             }
-            if isNaN(maxExtraTime) {
+            if (isNaN(maxExtraTime)) {
                 document.getElementById('description').innerHTML = 'Make sure you put in a valid number for extra time.';
                 return;
             }
