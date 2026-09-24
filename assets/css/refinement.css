@@ -109,7 +109,7 @@ h2 {
   margin-top: 16px; }
 
 .industry-section.resume-section { display: block; }
-.industry-section.resume-section > h2 { margin: 0 0 8px; }
+.industry-section > .experience-list { padding-top: 8px; }
 
 .publications ol.bibliography {
   margin-bottom: 0; }
@@ -426,7 +426,8 @@ footer.sticky-bottom {
   line-height: inherit;
 }
 .publications ol.compact-works li .title { font-weight: 500; }
-.publications ol.compact-works .reviewer-entry > strong { font-weight: 700; }
+.publications ol.compact-works .reviewer-entry > strong,
+.publications ol.compact-works .education-entry > strong { font-weight: 700; }
 .publications ol.compact-works li .author { color: #424242; }
 .publications ol.compact-works li .author > em { border: 0; font-style: normal; }
 .publications ol.compact-works li .periodical { color: #828282; }
@@ -457,8 +458,6 @@ footer.sticky-bottom {
   .experience-entry .entry-date { max-width: none; white-space: nowrap; }
 }
 
-.education.resume-section { display: block; line-height: 1.3; }
-.education.resume-section > h2 { display: inline; margin: 0 6px 0 0; }
 .education-summary { display: inline; margin: 0; font-size: 14px; line-height: 1.3; }
 .education-summary strong { font-weight: 600; }
 
@@ -472,3 +471,40 @@ footer.sticky-bottom {
   line-height: 1.4;
 }
 .academia .selected-works > h3 { margin-bottom: 4px; }
+
+.section-switcher { display: flex; gap: 28px; }
+.section-switcher button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #424242;
+  font: 400 16px/1.4 "Source Sans Pro", sans-serif;
+  cursor: pointer;
+  transition: color 160ms;
+}
+.section-switcher button:hover { color: var(--global-theme-color); }
+.section-switcher button[aria-expanded="true"] {
+  color: var(--global-theme-color);
+}
+.section-switcher button::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 200ms;
+}
+.section-switcher button[aria-expanded="true"]::after { transform: rotate(225deg); }
+.section-switcher-enabled .section-panels > details { margin: 0; }
+.section-switcher-enabled .section-panels > details:not([open]) { display: none; }
+.section-switcher-enabled .section-panels > details > summary { display: none; }
+.section-switcher-enabled .section-panels > details > :not(summary) { padding-top: 14px; }
+.section-panels[data-animating] { overflow: hidden; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .section-switcher button, .section-switcher button::after { transition: none; }
+}
