@@ -1,0 +1,32 @@
+{
+  "text_fonts": [
+    {
+      "file": "source-sans-pro-v24-latin-italic-400.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7nsDI.woff2"
+    },
+    {
+      "file": "source-sans-pro-v24-latin-normal-400.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2"
+    },
+    {
+      "file": "source-sans-pro-v24-latin-normal-600.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2"
+    },
+    {
+      "file": "source-sans-pro-v24-latin-normal-700.woff2",
+      "source": "https://fonts.gstatic.com/s/sourcesanspro/v24/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2"
+    }
+  ],
+  "text_font_license": "../licenses/source-sans-pro.txt",
+  "inline_icons": {
+    "envelope": "https://github.com/FortAwesome/Font-Awesome/blob/6.4.0/svgs/solid/envelope.svg",
+    "github": "https://github.com/FortAwesome/Font-Awesome/blob/6.4.0/svgs/brands/github.svg",
+    "linkedin": "https://github.com/FortAwesome/Font-Awesome/blob/6.4.0/svgs/brands/linkedin.svg",
+    "google-scholar": "https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/fonts/academicons.svg"
+  },
+  "icon_licenses": [
+    "../licenses/font-awesome.txt",
+    "../licenses/academicons.txt"
+  ],
+  "notes": "Text fonts are unmodified Latin WOFF2 files. Font Awesome SVG paths are unchanged. The Scholar glyph is unchanged and transformed from font coordinates to SVG coordinates."
+}
